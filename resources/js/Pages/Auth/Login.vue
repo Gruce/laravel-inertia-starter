@@ -14,7 +14,7 @@ defineProps({
 });
 
 const form = useForm({
-    email: '',
+    identity: '',
     password: '',
     remember: false,
 });
@@ -45,27 +45,13 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="email" value="Email" />
-                <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
+                <JetLabel for="identity" value="Email Or Username" />
+                <JetInput id="identity" v-model="form.identity" type="text" class="mt-1 block w-full" required autofocus />
             </div>
 
             <div class="mt-4">
                 <JetLabel for="password" value="Password" />
-                <JetInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                />
+                <JetInput id="password" v-model="form.password" type="password" class="mt-1 block w-full" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -77,7 +63,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
+                Forgot your password?
                 </Link>
 
                 <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
