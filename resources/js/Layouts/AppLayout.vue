@@ -1,17 +1,29 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link , usePage} from '@inertiajs/inertia-vue3';
 import JetApplicationMark from '@/Jetstream/ApplicationMark.vue';
 import JetBanner from '@/Jetstream/Banner.vue';
 import JetDropdown from '@/Jetstream/Dropdown.vue';
 import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
 import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
+import { createToaster } from "@meforma/vue-toaster";
 
 defineProps({
     title: String,
 });
+
+const toaster = createToaster({ position:"top-left" });
+const flash = computed(() => usePage().props.value.flash)
+
+watch(() => flash.value , (y) => {
+    if(y.show) toaster.show(y.show)
+    if(y.success) toaster.success(y.success)
+    if(y.error) toaster.error(y.error)
+    if(y.warning) toaster.warning(y.warning)
+    if(y.info) toaster.info(y.info)
+})
 
 const showingNavigationDropdown = ref(false);
 
