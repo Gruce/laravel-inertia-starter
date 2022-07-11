@@ -709,11 +709,11 @@ return [
     'IQD' => [
         'name'                => 'Iraqi Dinar',
         'code'                => 368,
-        'precision'           => 3,
-        'subunit'             => 1000,
-        'symbol'              => 'ع.د',
+        'precision'           => 0,
+        'subunit'             => 1,
+        'symbol'              => 'د.ع',
         'symbol_first'        => false,
-        'decimal_mark'        => '.',
+        'decimal_mark'        => ',',
         'thousands_separator' => ',',
     ],
 
