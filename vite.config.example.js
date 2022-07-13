@@ -6,8 +6,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
     server:{
-        host:"192.168.1.197", // SAME HOST WITH LARAVEL //
-        port:5000 // SAME PORT WITH LARAVEL //
+        host:"127.0.0.1", // SAME HOST WITH LARAVEL //
+        port:8000 // SAME PORT WITH LARAVEL //
     },
     plugins: [
         AutoImport({
